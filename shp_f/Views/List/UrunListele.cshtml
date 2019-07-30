@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "UrunListele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<Products>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h2>Ürünlerimiz</h2>
+<table class="table table-responsive">
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td> <img style="width=120px" height="120px" src="@product.ProductUrl"></td>
+                <td>
+                    <div>
+                        <p style="font-size:x-large">@product.ProductName</p>
+                        <p style="font-size:large">Fiyatı:     @product.ProductPrice ₺  </p>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button class="btn btn-success"> <i class="fa fa-shopping-basket"></i> Sepete Ekle </button><br /><br />
+                        <a href="@Url.Action("UrunIncele","List",new {ProductID =product.ProductId })" class="btn btn-primary"><i class="fa fa-search"></i> İncele  </a>
+                    </div>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

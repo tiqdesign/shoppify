@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "UrunIncele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model shp_f.Models.Products
+
+<div class="jumbotron">
+    <table>
+        <tbody>
+        <td><img style="width=150px" height="150px" src="@Model.ProductUrl"></td>
+
+        <td><p style="font-size:x-large; font-family:'Bebas Neue'"> @Model.ProductName</p>
+        <p style="font-size:xx-large; font-family:'Bebas Neue'">FİYATI: @Model.ProductPrice ₺</p>
+        <p style="font-size:medium; color:cadetblue; font-family:'Bebas Neue';">Stok:  @Model.ProductPiece</p>
+        </td>
+        
+        </tbody>
+
+    </table>
+
+
+</div>
