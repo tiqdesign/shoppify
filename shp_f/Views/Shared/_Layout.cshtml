@@ -8,6 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -20,32 +21,68 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <!--
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                    -->
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">shp_f</a>
+                <a asp-area="" asp-controller="Home" asp-action="HomePage" class="navbar-brand">Shoppify</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <!--
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    -->
                 </ul>
+                <partial name="_Login" />
+                <!--
+                    <ul class="nav navbar-nav navbar-right">
+                      <button class="btn btn-default" style="margin-top:10px; background-color:transparent; color:white" type="button" data-toggle="modal" data-target="#login"> Giriş Yap </button>
+                    </ul>
+                -->
             </div>
         </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
+    <div class="modal" id="login" role="dialog">
 
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4> Giriş Yap </h4>
+                </div>
+                <div class="modal-body col-md-12 form-group">
+                    <form asp-controller="Login" asp-action="LoginPage" method="post">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı:</label>
+                            <input name="username" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre:</label>
+                            <input name="password" class="form-control" type="password" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success"> Giriş Yap </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - shp_f</p>
-        </footer>
+
     </div>
 
     <environment include="Development">
@@ -70,5 +107,42 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+
+    <!-- Login Popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="exampleModalLabel"> Giriş Yap</h2>
+                </div>
+                <div class="modal-body">
+                    <p> Dikkat site içerisinde gezinebilmek için giriş yapmanız gerekmektedir. </p>
+                    <form asp-controller="Login" asp-action="LoginPage" method="post">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı:</label>
+                            <input name="username" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre:</label>
+                            <input name="password" class="form-control" type="password" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success"> Giriş Yap </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Geri</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>

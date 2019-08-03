@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.AspNetCore.Http;
+<style>
+    .he {
+        padding-top: 200px;
+    }
+
+    .header {
+        text-align: center;
+        color: black;
+        font-size: 100px;
+    }
+</style>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+    <script type="text/javascript">
+     $(document).ready(function () {
+         $("#btn_search").click(function (e) {
+             //Giriş yapıldı mı yapılmadıysa alert ver
+             var user = '@Context.Session.GetString("Username")';
+             if (user=='') {
+                 e.preventDefault();
+                 alert("Ürünleri görmek için giriş yapmanız gerek.");
+             }
+             //Yapıldıysa ama arama kısmı boş ise alert ver
+             else {
+                 var category = $("#tb").val();
+                 if (category == "") {
+                      e.preventDefault(); //bunu eklemezsem alertten sonra diğer işlemlere devam ediyor.
+                      alert("Lütfen kategori giriniz!");
+                 }
+             }
+         });
+     });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#category").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("AutoComplete","Home")',
+                        data: { ct: request.term },
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        },
+                    });
+                },
+                minLength: 1
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="he">
+        <div class="container">
+            <div class="row">
+                <div id="deneme" class="header col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                    <p class="header">Hoşgeldiniz!</p>
+                </div>
+            </div>
+            <form asp-action="UrunListeleK" asp-controller="List" method="post">
+                <div class="row form-group" style="padding-left:150px">
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-9">
+                        <input type="text" placeholder="Kategori giriniz: " id="category" name="ct" class="form-control" />
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <button id="btn_search" class="btn btn-default"><i class="fa fa-search"></i>  </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using shp_f.Func;
@@ -19,7 +22,7 @@ namespace shp_f.Controllers
         {
             return View();
         }
-
+       
         [HttpPost]
         public IActionResult LoginPage(string username, string password)
         {
@@ -30,8 +33,18 @@ namespace shp_f.Controllers
                 return View();
             }
             else
-                return RedirectToAction("UrunListele","List");
-
+            {
+                HttpContext.Session.SetString("Username",username);
+                return RedirectToAction("HomePage", "Home");
+            }
         }
+
+        public IActionResult LogoutPage()
+        {
+            HttpContext.Session.Remove("Username");
+            return RedirectToAction("HomePage","Home");
+        }
+
+
     }
 }

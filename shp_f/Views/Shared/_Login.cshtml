@@ -1,0 +1,26 @@
+﻿
+@using Microsoft.AspNetCore.Http;
+
+@{ string username = "";
+    if (Context.Session.GetString("Username") != null)
+    {
+        username = Context.Session.GetString("Username");
+        <form method="post" id="logoutForm" class="navbar-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a title="Manage" style="cursor:pointer">Merhaba @username !</a>
+                </li>
+                <li>
+                    <a asp-controller="Login" asp-action="LogoutPage" class="btn btn-default" style="background-color:transparent; color:white; cursor:pointer; border:none"> Çıkış Yap</a>
+                </li>
+            </ul>
+        </form>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a  data-toggle="modal" data-target="#exampleModal" style="cursor:pointer" >Giriş Yap</a></li>
+        </ul>
+    }
+}
+

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using shp_f.Func;
 
@@ -17,15 +19,33 @@ namespace shp_f.Controllers
 
         public IActionResult UrunIncele(int ProductID)
         {
-            var product = _func.GetProduct(ProductID);
-            return View(product);
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("HomePage", "Home");
+            }
+            else
+            {
+                var product = _func.GetProduct(ProductID);
+                return View(product);
+            }
+
         }
 
-        [HttpGet]
-        public IActionResult UrunListele()
+        [HttpPost]
+        public IActionResult UrunListeleK(string category)
         {
-            var liste = _func.GetAllProducts();
-            return View(liste);
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                 return RedirectToAction("HomePage", "Home"); 
+            }
+            else
+            {
+           
+                var liste = _func.GetListWithCategory(category);
+                return View(liste);
+            }
         }
+
+
     }
 }
