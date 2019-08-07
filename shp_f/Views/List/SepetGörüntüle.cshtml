@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewData["Title"] = "SepetGörüntüle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<Cart>
+
+
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#done").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/List/SepetiOnayla',
+                    success: function () {
+                        alert(" Alışverişiniz Tamamlanmıştır. Teşekkür Ederiz.");
+                        window.location = '/Home/HomePage';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<style>
+    th, td {
+        text-align: center
+    }
+
+    input[type=number] {
+        width: 50px;
+    }
+</style>
+
+<h2>Sepetiniz</h2>
+@if (Model.Count == 0)
+{
+    <h1 style="text-align:center">Sepetinizde ürün bulunmamaktadır!</h1>
+}
+else
+{
+    <table class="table table-responsive">
+        <tbody>
+            <tr>
+                <th> Ürün No</th>
+                <th> Ürün Adı</th>
+                <th> Fiyat</th>
+                <th style="text-align:start"> Miktar</th>
+            </tr>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>
+                        <div>
+                            <p style="font-size:large"> @product.ProductId </p>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>
+                            <p style="font-size:large">@product.ProductPrice ₺</p>
+                        </div>
+                    </td>
+                    <td style="text-align:start">
+                        <form asp-controller="List" asp-action="SepetiGuncelle" method="post">
+                            <input type="number" min="1" name="amount" width="10px" value="@product.ProductAmount">
+                            <button type="submit" value="@product.ProductId" name="ProductID" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                            <a href="@Url.Action("SepettenKaldir","List",new {ProductID =product.ProductId })" id="@product.ProductId" class="btn btn-danger"><i class="fa fa-minus"></i><p id="hiddenid" hidden>@product.ProductId</p> </a>
+
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div class="navbar navbar-right" style="text-align:center">
+        <p class="h4"> Toplam Tutar:  @ViewData["Toplam Tutar"] ₺ </p>
+        <a href="@Url.Action("SepetiOnayla","List")" class="btn btn-success" id="done"> Alışverişi Tamamla! </a>
+    </div>
+
+
+
+}

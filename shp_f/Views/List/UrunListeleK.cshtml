@@ -7,6 +7,27 @@
 @using Microsoft.AspNetCore.Http;
 
 @model List<CategoryList>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+    <script type="text/javascript">
+     $(document).ready(function () {
+         $(".productid").click(function (e) { 
+             var id = $(this).attr("id");
+    e.preventDefault();
+    $.ajax({
+        url:'/List/SepeteEkle?ProductID='+ id, 
+        success: function () {
+            alert("Sepete Eklendi!");
+        }
+    });
+
+});
+             });
+        </script>
+   </head>
+
 @{ string username = "";
     if (Context.Session.GetString("Username") != null)
     {
@@ -27,8 +48,12 @@
                         </td>
                         <td>
                             <div>
-                                <button class="btn btn-success"> <i class="fa fa-shopping-basket"></i> Sepete Ekle </button><br /><br />
-                                <a href="@Url.Action("UrunIncele","List",new {ProductID =product.ProductID })" class="btn btn-primary"><i class="fa fa-search"></i> İncele  </a>
+                                <a href="@Url.Action("SepeteEkle","List",new {ProductID =product.ProductID })" id="@product.ProductID" style="padding:10px" class="btn btn-success  productid"><i class="fa fa-shopping-cart"></i> Sepete Ekle <p  id="hiddenid" hidden>@product.ProductID</p> </a>
+                                <form asp-controller="List" asp-action="UrunIncele" method="post">
+                                    <input type="text" hidden name="ProductID" value="@product.ProductID" />
+                                    <button style="padding:10px; margin-top:10px"  class="btn btn-primary" type="submit"> <i class="fa fa-search"></i> İncele  </button>
+                                </form>
+                               
                             </div>
                         </td>
 
@@ -37,6 +62,7 @@
 
             </tbody>
         </table>
+       
     }
     else
     {

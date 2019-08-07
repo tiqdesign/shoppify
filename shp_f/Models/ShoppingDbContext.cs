@@ -15,6 +15,7 @@ namespace shp_f.Models
         {
         }
 
+        public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Users> Users { get; set; }
@@ -30,6 +31,31 @@ namespace shp_f.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Cart>(entity =>
+            {
+                entity.Property(e => e.CartId).HasColumnName("CartID");
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.ShoppingId).HasColumnName("ShoppingID");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cart_Products");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cart_Users");
+            });
+
             modelBuilder.Entity<Categories>(entity =>
             {
                 entity.HasKey(e => e.CategoryId);

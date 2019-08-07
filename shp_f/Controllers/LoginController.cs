@@ -34,7 +34,11 @@ namespace shp_f.Controllers
             }
             else
             {
-                HttpContext.Session.SetString("Username",username);
+                HttpContext.Session.SetString("Username",user.UserFullName);
+                HttpContext.Session.SetInt32("UserId",user.UserId);
+                Guid shpid = Guid.NewGuid();
+                //Burada oluşturduk çıkış yaparken bunu sil 
+                HttpContext.Session.SetString("ShoppingId", shpid.ToString());
                 return RedirectToAction("HomePage", "Home");
             }
         }

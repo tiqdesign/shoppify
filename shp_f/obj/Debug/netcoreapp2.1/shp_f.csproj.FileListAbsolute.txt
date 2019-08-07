@@ -30,3 +30,5 @@ C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\shp_f.RazorT
 C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\shp_f.RazorTargetAssemblyInfo.cs
 C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\shp_f.Views.pdb
 C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\shp_f.csproj.CopyComplete
+C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\shp_f.csprojAssemblyReference.cache
+C:\Users\tiqdesign\source\repos\shp_f\shp_f\obj\Debug\netcoreapp2.1\Razor\Views\List\SepetGörüntüle.g.cshtml.cs
