@@ -68,7 +68,7 @@ using shp_f.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(122, 700, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88cd94fadd8c41ecac98a5143571eaf2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9490d0cff5d24675a8c177b43520dba2", async() => {
                 BeginContext(128, 687, true);
                 WriteLiteral(@"
     <script src=""https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js""></script>
@@ -162,7 +162,7 @@ else
             WriteLiteral(" ₺</p>\r\n                        </div>\r\n                    </td>\r\n                    <td style=\"text-align:start\">\r\n                        ");
             EndContext();
             BeginContext(1932, 618, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9dcd60fd98154c2286d151cf505ad3e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78bc826f5f73428cbe581485056407bc", async() => {
                 BeginContext(2002, 85, true);
                 WriteLiteral("\r\n                            <input type=\"number\" min=\"1\" name=\"amount\" width=\"10px\"");
                 EndContext();

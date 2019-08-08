@@ -71,7 +71,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("<style>\r\n    .he {\r\n        padding-top: 200px;\r\n    }\r\n\r\n    .header {\r\n        text-align: center;\r\n        color: black;\r\n        font-size: 100px;\r\n    }\r\n</style>\r\n");
             EndContext();
             BeginContext(295, 1799, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0fd53997ac7749eeb403b0ea5be2e692", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f4db7d15dc9542e090a5657cfbb5fe0d", async() => {
                 BeginContext(301, 380, true);
                 WriteLiteral(@"
     <script src=""https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js""></script>
@@ -156,7 +156,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(2098, 954, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e5d1290e9c648fca6c6e04a9e7ff1b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd118d83069f4bf6b1e789b1805833cd", async() => {
                 BeginContext(2104, 290, true);
                 WriteLiteral(@"
     <div class=""he"">
@@ -169,7 +169,7 @@ using Microsoft.AspNetCore.Http;
             ");
                 EndContext();
                 BeginContext(2394, 621, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e885855a9f041c2b55fec314d174577", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72ec3eeab47a46f88af8c2615fb87a2e", async() => {
                     BeginContext(2462, 546, true);
                     WriteLiteral(@"
                 <div class=""row form-group"" style=""padding-left:150px"">

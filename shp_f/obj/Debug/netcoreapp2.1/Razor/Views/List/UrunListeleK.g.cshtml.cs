@@ -80,7 +80,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(163, 581, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98277c5304b24bdea7777a75a7ddce49", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62b9cc7a6f7d47c29f94e010b427fc97", async() => {
                 BeginContext(169, 568, true);
                 WriteLiteral(@"
     <script src=""https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js""></script>
@@ -197,7 +197,7 @@ WriteAttributeValue("", 1692, product.ProductID, 1692, 18, false);
             WriteLiteral("</p> </a>\r\n                                ");
             EndContext();
             BeginContext(1902, 387, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a478de91ce84bdeb3673f697607c1de", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3b39eb1cf9748d380a6d1ef9c4c1c50", async() => {
                 BeginContext(1968, 80, true);
                 WriteLiteral("\r\n                                    <input type=\"text\" hidden name=\"ProductID\"");
                 EndContext();
@@ -255,7 +255,7 @@ WriteAttributeValue("", 2056, product.ProductID, 2056, 18, false);
             WriteLiteral("        <div class=\"alert alert-warning\">\r\n            <strong>Üzgünüm :( </strong> Bu sayfayı yalnızsa kullanıcılarımız görebilir. Görmek için lütfen giriş yapın.,\r\n            ");
             EndContext();
             BeginContext(2737, 99, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e2b7b1670f144459de315ac96fca933", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65c940dd1dbf4abba75994b8347ccc3a", async() => {
                 BeginContext(2813, 14, true);
                 WriteLiteral("Anasayfaya Dön");
                 EndContext();

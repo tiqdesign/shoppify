@@ -85,12 +85,12 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("        ");
             EndContext();
             BeginContext(195, 562, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7890ab53042645bc86abf75f15a60cdd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5aaf399c25014e8bb5bb76923aa4abcc", async() => {
                 BeginContext(252, 98, true);
                 WriteLiteral("\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li>\r\n                    ");
                 EndContext();
                 BeginContext(350, 114, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "103ee0ef82a94a9d8e6446a1365cc6ad", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0660d94da554ce490807d0d63266e0c", async() => {
                     BeginContext(441, 8, true);
                     WriteLiteral("Merhaba ");
                     EndContext();
@@ -126,7 +126,7 @@ using Microsoft.AspNetCore.Http;
                 WriteLiteral("\r\n                </li>\r\n                <li>\r\n                    ");
                 EndContext();
                 BeginContext(531, 167, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08d3e9e1a7e4404d9bc82943f230085a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b447e7abb3584bab86ed8fa0b04db3a6", async() => {
                     BeginContext(684, 10, true);
                     WriteLiteral(" Çıkış Yap");
                     EndContext();

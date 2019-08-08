@@ -118,10 +118,20 @@ namespace shp_f.Func
         #region Sepete Ekle Fonksiyonu
         public void addToCart(int id, int userid, int amount, Guid gecicisepetid)
         {
-            Products p1 = GetProduct(id);
-            var cartdate = DateTime.Now;
-            Cart c1 = new Cart { ProductId = p1.ProductId, ProductAmount = amount, ProductPrice = p1.ProductPrice, UserId = userid, ShoppingId = gecicisepetid, Date = cartdate };
-            _context.Cart.Add(c1);
+            bool item = _context.Cart.Where(p => p.ProductId == id && p.ShoppingId == gecicisepetid && p.IsDone == false && p.UserId==userid).Any();
+            if (item)
+            {
+                Cart product = _context.Cart.Where(p => p.ProductId == id && p.ShoppingId == gecicisepetid && p.IsDone == false && p.UserId == userid).First();
+                product.ProductAmount = product.ProductAmount + 1;
+                _context.Update(product);
+            }
+            else
+            {
+                Products p1 = GetProduct(id);
+                var cartdate = DateTime.Now;
+                Cart c1 = new Cart { ProductId = p1.ProductId, ProductAmount = amount, ProductPrice = p1.ProductPrice, UserId = userid, ShoppingId = gecicisepetid, Date = cartdate };
+                _context.Cart.Add(c1);
+            }
             _context.SaveChanges();
         }
 
@@ -174,6 +184,14 @@ namespace shp_f.Func
             }
             _context.SaveChanges();
 
+        }
+        #endregion
+
+        #region Kayıt Olma
+        public void CreateUser(Users u)
+        {
+            _context.Users.Add(u);
+            _context.SaveChanges();
         }
         #endregion
 

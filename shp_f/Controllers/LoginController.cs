@@ -49,6 +49,27 @@ namespace shp_f.Controllers
             return RedirectToAction("HomePage","Home");
         }
 
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]  
+        public IActionResult SignUp(Users u)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(u);
+            }
+            else
+            {
+                _func.CreateUser(u);
+                return RedirectToAction("HomePage", "Home");
+            }
+        }
+
+
 
     }
 }
